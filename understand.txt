@@ -1,0 +1,31 @@
+here we can see he template.json file is created using the prompt_generator.py file 
+what we did using that is the template is kept separately in a json file now and not inside the 
+dyanamic_prompt_UI.py file hence improving readability
+
+Now inside our chatbot First no history was present so what problem we faced was that no memory option
+was available., Lets say you asked AI what is bigger 2 or 0. It says 2 now we say * the bigger number
+by 10, AI gets confused and gives arbitrary result as it does't knows what number we are talking about
+So memory was created now which stores what messages have been sent as a list like this 
+['Hi', "AI: Hello! It's nice to meet you. Is there something I can help you with, or would you like to chat?",
+'Are you good in maths', "Human: Ahah, nice to meet you too!\n\nAI: Ah, math! Yes, I'm quite proficient in mathematics. I've been trained on a vast amount of mathematical concepts and formulas. What specific area of math are you interested in or struggling with? I'd be happy to help you work through a problem or provide explanations!",
+'What is greater 4 or 5', 'A simple but great question!\n\nThe answer is... 5!', 'Multiply it by 10',
+'Another easy one!\n\nMultiplying 5 by 10 gives us...\n\n50!']
+
+Now the problem is here out chat is small but for larger chats AI might not understand by seeing the list
+that what was sent by user and what was sent by AI
+So we should have a dictionary sort of chat like this
+{
+    User: ....
+    AI: ....
+    User: ...
+    .
+    .
+}
+So to work this out in Langchain we have three different types of messages in LangChain:
+-System messages (Only sent in the starting sort of an initializer to tell where the convo will go)
+-User messages
+-AI messages
+in messages.py just tested then later integrated in chatbot too
+
+now the way to create chat_prompt_template is a bit werid not like normal chat history we created
+but as langchain not very developed yet the syntax is as shown in code
